@@ -1,7 +1,7 @@
 export type RegionType = 'CCR' | 'RCR' | 'OCR' | 'ALL';
 export type PropertyCategory = 'HDB' | 'Condo' | 'Landed';
 
-export type SelectedTab = 'overview' | 'trends' | 'yields' | 'schools' | 'pipeline';
+export type SelectedTab = 'overview' | 'trends' | 'yields' | 'schools' | 'pipeline' | 'forum';
 
 export type MetricFilter = 
   | 'price_psf' 

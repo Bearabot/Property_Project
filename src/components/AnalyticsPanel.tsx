@@ -26,6 +26,7 @@ import {
 } from 'recharts';
 import { DistrictData, RegionType, SelectedTab } from '../types';
 import { REGION_SUMMARIES } from '../data/singaporeData';
+import { DisqusThread } from './DisqusThread';
 
 interface AnalyticsPanelProps {
   selectedDistrict: DistrictData;
@@ -355,6 +356,16 @@ export const AnalyticsPanel: React.FC<AnalyticsPanelProps> = ({
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {/* TAB 6: DISCUSSION FORUM */}
+        {selectedTab === 'forum' && (
+          <div className="space-y-3">
+            <DisqusThread
+              identifier={`district-${selectedDistrict.id}`}
+              title={`District ${selectedDistrict.code} (${selectedDistrict.name}) Forum`}
+            />
           </div>
         )}
 
