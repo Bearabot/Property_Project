@@ -3,18 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-    <meta name="description" content="An application built with Google AI Studio." />
-    <meta property="og:title" content="My Google AI Studio App" />
-    <meta property="og:description" content="An application built with Google AI Studio." />
+    <title>PropIntel SG - Singapore Real Estate & Property Intelligence</title>
+    <meta name="description" content="Singapore property analytics, district median PSF, rental yields, and urban development pipeline." />
+    <meta property="og:title" content="PropIntel SG" />
+    <meta property="og:description" content="Singapore real estate market intelligence and property analytics." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="text/javascript">
+      try {
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            y=l.getElementsByTagName(r)[0];if(y&&y.parentNode){y.parentNode.insertBefore(t,y);}
         })(window, document, "clarity", "script", "y1n3xiwery");
+      } catch (err) {
+        console.warn('Clarity initialization warning:', err);
+      }
     </script>
   </head>
   <body>
@@ -22,4 +26,5 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
 
