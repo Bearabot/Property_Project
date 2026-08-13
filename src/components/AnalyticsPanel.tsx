@@ -359,16 +359,6 @@ export const AnalyticsPanel: React.FC<AnalyticsPanelProps> = ({
           </div>
         )}
 
-        {/* TAB 6: DISCUSSION FORUM */}
-        {selectedTab === 'forum' && (
-          <div className="space-y-3">
-            <DisqusThread
-              identifier={`district-${selectedDistrict.id}`}
-              title={`District ${selectedDistrict.code} (${selectedDistrict.name}) Forum`}
-            />
-          </div>
-        )}
-
         {/* AI Insight Section */}
         <div className="bg-indigo-950/40 border border-indigo-500/30 rounded-2xl p-4 shadow-sm">
           <div className="flex items-center justify-between mb-2">

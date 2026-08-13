@@ -44,37 +44,37 @@ export const DisqusThread: React.FC<DisqusThreadProps> = ({
     if (!existingCountScript) {
       const s = document.createElement('script');
       s.id = 'dsq-count-scr';
-      s.src = '//aiagentdemo.disqus.com/count.js';
+      s.src = 'https://aiagentdemo.disqus.com/count.js';
       s.async = true;
       (document.head || document.body).appendChild(s);
     }
   }, [identifier, title, url]);
 
   return (
-    <div className="w-full bg-slate-800/40 border border-slate-800 rounded-2xl p-5 shadow-sm text-slate-100">
-      <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
-        <div className="flex items-center gap-2.5">
-          <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-xl">
-            <MessageSquare className="w-5 h-5" />
+    <div className="w-full bg-slate-900/90 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 border-b border-slate-800/80 gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="p-3 bg-indigo-500/20 text-indigo-400 rounded-2xl border border-indigo-500/30">
+            <MessageSquare className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-white">Community Discussion Forum</h3>
-            <p className="text-xs text-slate-400">
-              Share property insights, ask questions, and engage with analysts.
+            <h3 className="text-xl font-bold text-white tracking-tight">Community Discussion Forum</h3>
+            <p className="text-xs text-slate-400 mt-0.5">
+              Share Singapore property insights, ask questions, and engage with market analysts.
             </p>
           </div>
         </div>
         <a
           href="#disqus_thread"
           data-disqus-identifier={identifier}
-          className="text-xs font-semibold text-indigo-300 bg-indigo-500/20 px-3 py-1 rounded-full border border-indigo-500/30 hover:bg-indigo-500/30 transition-colors"
+          className="self-start sm:self-auto text-xs font-semibold text-indigo-300 bg-indigo-500/20 px-4 py-2 rounded-full border border-indigo-500/30 hover:bg-indigo-500/30 transition-colors shadow-sm"
         >
           Comment Count
         </a>
       </div>
 
       {/* Disqus Container */}
-      <div id="disqus_thread" className="min-h-[250px]" />
+      <div id="disqus_thread" className="min-h-[280px]" />
 
       <noscript>
         Please enable JavaScript to view the{' '}

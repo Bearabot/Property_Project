@@ -8,6 +8,7 @@ import { AnalyticsPanel } from './components/AnalyticsPanel';
 import { CompareModal } from './components/CompareModal';
 import { SaveSearchModal } from './components/SaveSearchModal';
 import { ExportReportModal } from './components/ExportReportModal';
+import { DisqusThread } from './components/DisqusThread';
 import { X, Settings, HelpCircle, Check, Info } from 'lucide-react';
 
 export default function App() {
@@ -45,42 +46,55 @@ export default function App() {
       />
 
       {/* Main Layout Container */}
-      <div className="flex flex-1 pt-20 relative h-[calc(100vh-80px)] overflow-hidden">
-        {/* Left Sidebar */}
-        <SideNavBar
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-          selectedRegion={selectedRegion}
-          setSelectedRegion={(region) => {
-            setSelectedRegion(region);
-            const firstInRegion = SINGAPORE_DISTRICTS.find(
-              (d) => region === 'ALL' || d.region === region
-            );
-            if (firstInRegion) setSelectedDistrict(firstInRegion);
-          }}
-          onOpenExportReport={() => setIsExportReportOpen(true)}
-          onOpenSettings={() => setIsSettingsOpen(true)}
-          onOpenHelp={() => setIsHelpOpen(true)}
-        />
+      <div className="flex-1 pt-20 relative overflow-y-auto">
+        {/* Interactive Dashboard Area */}
+        <div className="flex relative h-[calc(100vh-80px)] overflow-hidden">
+          {/* Left Sidebar */}
+          <SideNavBar
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+            selectedRegion={selectedRegion}
+            setSelectedRegion={(region) => {
+              setSelectedRegion(region);
+              const firstInRegion = SINGAPORE_DISTRICTS.find(
+                (d) => region === 'ALL' || d.region === region
+              );
+              if (firstInRegion) setSelectedDistrict(firstInRegion);
+            }}
+            onOpenExportReport={() => setIsExportReportOpen(true)}
+            onOpenSettings={() => setIsSettingsOpen(true)}
+            onOpenHelp={() => setIsHelpOpen(true)}
+          />
 
-        {/* Central Map Canvas */}
-        <MapCanvas
-          districts={displayedDistricts}
-          selectedDistrict={selectedDistrict}
-          onSelectDistrict={setSelectedDistrict}
-          metricFilter={metricFilter}
-          setMetricFilter={setMetricFilter}
-          propertyCategory={propertyCategory}
-          setPropertyCategory={setPropertyCategory}
-        />
+          {/* Central Map Canvas */}
+          <MapCanvas
+            districts={displayedDistricts}
+            selectedDistrict={selectedDistrict}
+            onSelectDistrict={setSelectedDistrict}
+            metricFilter={metricFilter}
+            setMetricFilter={setMetricFilter}
+            propertyCategory={propertyCategory}
+            setPropertyCategory={setPropertyCategory}
+          />
 
-        {/* Right Analytics Overlay Panel */}
-        <AnalyticsPanel
-          selectedDistrict={selectedDistrict}
-          selectedRegion={selectedRegion}
-          selectedTab={selectedTab}
-          onSelectDistrict={setSelectedDistrict}
-        />
+          {/* Right Analytics Overlay Panel */}
+          <AnalyticsPanel
+            selectedDistrict={selectedDistrict}
+            selectedRegion={selectedRegion}
+            selectedTab={selectedTab}
+            onSelectDistrict={setSelectedDistrict}
+          />
+        </div>
+
+        {/* Bottom Landing Page Discussion Forum Section */}
+        <section id="disqus-discussion-section" className="w-full bg-slate-950 border-t border-slate-800/80 py-10 px-4 md:px-8 md:pl-88">
+          <div className="max-w-6xl mx-auto">
+            <DisqusThread
+              identifier="propintel-sg-landing-forum"
+              title="PropIntel SG Community Discussion Forum"
+            />
+          </div>
+        </section>
       </div>
 
       {/* Modals */}

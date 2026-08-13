@@ -38,7 +38,6 @@ export const SideNavBar: React.FC<SideNavBarProps> = ({
     { id: 'yields' as SelectedTab, label: 'Rental Yields', icon: CreditCard },
     { id: 'schools' as SelectedTab, label: 'School Proximity', icon: GraduationCap },
     { id: 'pipeline' as SelectedTab, label: 'Development Pipeline', icon: Hammer },
-    { id: 'forum' as SelectedTab, label: 'Discussion Forum', icon: MessageSquare },
   ];
 
   return (
